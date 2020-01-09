@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link, Route, Redirect } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Menu = styled.div`
     position: absolute;
     top: 50px;
-    left: 50px;
+    left: 40px;
     display: ${props => props.hidden === true ? 'none' : 'flex'}
     flex-direction: column;
     background-color: grey;
@@ -31,19 +31,26 @@ const Menu = styled.div`
 
 
 const HamburgerMenu = props => {
+    const [logout, setLogout] = useState(false);
 
-    const logout = () => {
+    const handleClick = () => {
         localStorage.clear();
-        
+        setLogout(true);
     }
 
-    return (
-        <Menu hidden={props.hidden}>
-            <button>Update Username</button>
-            <button>Logout</button>
-        </Menu>
+    if(logout) {
+        return (
+            <Redirect to='/login' />
+        )
+    } else {
+        return (
+            <Menu hidden={props.hidden}>
+                <button onClick={handleClick}>Logout</button>
+            </Menu>
+    
+        )
 
-    )
+    }
 }
 
 

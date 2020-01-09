@@ -10,10 +10,10 @@ const UserComments = () => {
 
     if(comments.length > 0) {
         return (
-            <Grid relaxed columns={4}>
+            <Grid relaxed columns='4'>
                 { comments.map(comment => {
             return (
-                <Grid.Column>
+                <Grid.Column stretched>
                     <Comment author={author} comment={comment} />
                 </Grid.Column>
             )

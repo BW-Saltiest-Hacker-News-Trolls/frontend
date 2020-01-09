@@ -12,7 +12,7 @@ useEffect(() => {
 axios
    .get('https://unit3-build-dummy-api.herokuapp.com/feed')
    .then((response) => {
-    const sliced = response.data.slice(0,10) // grabs only the first 10 results from the response
+    const sliced = response.data.slice(0,100) // grabs only the first 10 results from the response
     return sliced;
    })
    .then(slicedArray => {

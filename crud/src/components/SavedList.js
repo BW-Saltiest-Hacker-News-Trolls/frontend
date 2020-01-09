@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   padding:1%;
   border-radius:2%;
   margin-bottom:1%;
+
 `;
 
 
