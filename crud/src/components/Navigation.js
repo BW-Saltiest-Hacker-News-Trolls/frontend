@@ -16,10 +16,11 @@ display: flex;
 justify-content: center;
 justify-content: space-evenly;
 align-items: center;
-font-size: 2rem;
-margin-top: 20px;
-border-bottom: 2px solid black;
-padding-bottom: 20px;
+font-size: 1.4rem;
+padding: 15px;
+background-color: #FF6600;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
 
 .hamburger {
       position: absolute;
@@ -39,8 +40,8 @@ const Button = styled.button`
       outline: none;
       cursor: pointer;
       border: none;
-      background-color: white;
       font-size: 2rem;
+      color: #FF6600;
 `;
 
 const Navigation = () => {
@@ -50,9 +51,9 @@ const Navigation = () => {
     <>
     <WrapperDiv className = "NavWrap">    
           <Button className='hamburger' onClick={() => setMenu(!menu)}><FontAwesomeIcon icon={faBars}/></Button>
-          <Link to ="/dashboard" style={{ textDecoration: 'none', color: 'black' }}>Salt Feed</Link>
-          <Link to ="/search" style={{ textDecoration: 'none' , color: 'black' }}>User Search </Link>
-          <Link to ="/saved" style={{ textDecoration: 'none' , color: 'black' }}>Saved </Link>
+          <Link to ="/dashboard" style={{ textDecoration: 'none', color: 'white' }}>Salt Feed</Link>
+          <Link to ="/search" style={{ textDecoration: 'none' , color: 'white' }}>User Search </Link>
+          <Link to ="/saved" style={{ textDecoration: 'none' , color: 'white' }}>Saved </Link>
     </WrapperDiv>
       <HamburgerMenu hidden={menu} />
 

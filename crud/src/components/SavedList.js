@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth.js';
 import { Link } from 'react-router-dom';
-import DeleteComment from './DeleteComment';
+import DeleteComment from './DeleteComment.js';
 
 
 function SavedList () {
