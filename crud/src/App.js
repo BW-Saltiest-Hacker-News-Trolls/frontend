@@ -33,16 +33,6 @@ import './App.css';
 function App() {
   const [comments]= useState ([])
 
-  // const deleteComment = commentId => {
-  //   console.log(commentId)
-  //   axiosWithAuth()
-  //     .delete(`/comments`, {id: 24})
-  //     .then (response => {
-  //       console.log(response)
-  //     })
-  //     .catch(error=> console.log(error))
-  // };
-
   return (
     <CommentContext.Provider value={{comments}}>
       <div className="App">

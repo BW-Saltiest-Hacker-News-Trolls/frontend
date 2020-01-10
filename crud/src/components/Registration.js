@@ -6,8 +6,7 @@ import {
     Wrapper, 
     Form, 
     Input, 
-    Button, 
-    Container,
+    Button2,
     SubTitle,
     NavLink
     } from '../styles/RegistrationStyles'; 
@@ -48,13 +47,13 @@ class Registration extends React.Component {
                 .catch (error => console.log ('kd:registration:login:axios.catch', error));
     };
 
-    
+
 
     render() {
         
         return (
             <>
-            <Header><h1>Salty Comment Membership</h1></Header>
+            <Header><h1>HACKER NEWS RANK</h1></Header>
             <Wrapper>
                 <Form onSubmit = {this.login}>
                     <Input
@@ -77,14 +76,15 @@ class Registration extends React.Component {
                         />
                         <br></br>
 
-                    <Button 
+                    <Button2 
                         type = 'submit'
                         >Register
-                    </Button>
+                    </Button2>
                     <hr></hr>
-                    <Container>
-                        <SubTitle>Already registered? Click <Link to='/login'><NavLink>here</NavLink></Link> to login</SubTitle>
-                    </Container>
+                    
+                    <SubTitle>Already registered? 
+                        <br />Click <Link to='/login'><NavLink>here</NavLink></Link> to login</SubTitle>
+                   
                    
                 </Form>
             </Wrapper>
