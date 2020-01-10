@@ -1,20 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth.js';
-import { Link } from 'react-router-dom';
-import DeleteComment from './DeleteComment.js';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { 
+  Button,  
+  Section,
+  TrollWrap,
+  Div
+} from '../styles/RegistrationStyles'; 
+
 
 
 function SavedList () {
   const [savedComments, setSavedComments]= useState ([])
-  // const {troll_username, comment_toxicity, comment} = savedComment; 
 
+  const styleObj ={
+    fontSize: 20,
+    fontFamily: "The Wild Hammers",
+    color: "white"
+  }
+
+  const styleText ={
+    fontSize:16
+  }
 
     useEffect (() => {
       const getSavedComments = () => {
         axiosWithAuth()
         .get(`/comments`)
         .then (response => {
-          // console.log("comments:", response)
           setSavedComments(response.data);
         })
         .catch(error=> console.log(error))
@@ -36,42 +48,48 @@ function SavedList () {
 
   return (
     <>
-    <div className="saved-list">
-      <h3>Saved Comments:</h3>
+   
+    <Div className="saved-list">
       {savedComments.map(comment => {
         console.log("comments:", comment)
-
+        
         return (
-          <div className = "saved-comment-card">
-    
-          <div className = "troll-username">
-            <h2>Username: {comment.troll_username}</h2>
-          </div>
-          <div className = "toxicity">
-            <h3>Toxicity Score: {comment.comment_toxicity}</h3>
-          </div>    
-          <div className = "comment">
-            <p>Comment: {comment.comment}</p>
-          </div>
-          {/* <center><DeleteComment comment = {comment}/></center> */}
-          <button className = 'remove-comment-btn'
-                    onClick = {() => deleteComment (comment.id)}
-                    >Delete Comment
-            </button>
-      </div>
+         
+          <Section className = "saved-comment-card">
+            
+              <TrollWrap>
+                  <div className = "troll-username">
+                    <h2 style ={styleObj}>Username:
+                    <br />
+                    {comment.troll_username}</h2>
+                  </div>
+
+                  <br />
+
+                  <div className = "toxicity">
+                    <h3 style = {styleObj}>Toxicity Score: {comment.comment_toxicity}</h3>
+                  </div>    
+              </TrollWrap>
+
+                  <br />
+
+                  <div className = "comment">
+                    <p style={styleText}>COMMENT:
+                    <br /> {comment.comment}</p>
+                  </div>
+
+                  <br />
+
+                  <center><Button className = 'remove-comment-btn'
+                            onClick = {() => deleteComment (comment.id)}
+                            >Delete Comment
+                    </Button></center>
+             
+          </Section>
+          
         )
       })}
-  
-  
-    </div>
-
-
-   
-  
-    
-    <div className="dash-button">
-      <Link to="/dashboard">Dashboard</Link>
-    </div>
+    </Div>
     </>
   );
 }
